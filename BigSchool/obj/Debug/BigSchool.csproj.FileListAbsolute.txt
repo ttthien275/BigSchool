@@ -106,3 +106,9 @@ C:\D\BaiTap\THWeb\buoi4\BigSchool\BigSchool\obj\Debug\BigSchool.csproj.CoreCompi
 C:\D\BaiTap\THWeb\buoi4\BigSchool\BigSchool\obj\Debug\BigSchool.csproj.CopyComplete
 C:\D\BaiTap\THWeb\buoi4\BigSchool\BigSchool\obj\Debug\BigSchool.dll
 C:\D\BaiTap\THWeb\buoi4\BigSchool\BigSchool\obj\Debug\BigSchool.pdb
+C:\D\BaiTap\THWeb\buoi4\BigSchool\BigSchool\bin\System.Net.Http.Formatting.dll
+C:\D\BaiTap\THWeb\buoi4\BigSchool\BigSchool\bin\System.Web.Http.dll
+C:\D\BaiTap\THWeb\buoi4\BigSchool\BigSchool\bin\System.Web.Http.WebHost.dll
+C:\D\BaiTap\THWeb\buoi4\BigSchool\BigSchool\bin\System.Net.Http.Formatting.xml
+C:\D\BaiTap\THWeb\buoi4\BigSchool\BigSchool\bin\System.Web.Http.xml
+C:\D\BaiTap\THWeb\buoi4\BigSchool\BigSchool\bin\System.Web.Http.WebHost.xml

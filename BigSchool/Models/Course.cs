@@ -9,6 +9,12 @@ namespace BigSchool.Models
     [Table("Course")]
     public partial class Course
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        //public Course()
+        //{
+        //    Attendances = new HashSet<Attendance>();
+        //}
+
         public int Id { get; set; }
 
         [StringLength(128)]
@@ -16,6 +22,9 @@ namespace BigSchool.Models
 
         [StringLength(255)]
         public string Name;
+
+        [StringLength(255)]
+        public string LectureName;
 
         [StringLength(255)]
         public string Place { get; set; }
