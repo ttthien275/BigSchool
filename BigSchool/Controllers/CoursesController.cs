@@ -143,15 +143,61 @@ namespace BigSchool.Controllers
         {
             BigSchoolContext context = new BigSchoolContext();
             var D_tin = context.Courses.Where(m => m.Id == sId).First();
-            var D_tin2 = context.Attendances.Where(m => m.CourseId == sId).First();
+            try
+            {
+                var D_tin2 = context.Attendances.Where(m => m.CourseId == sId).First();
+                if (D_tin2 != null)
+                {
+                    context.Attendances.Remove(D_tin2);
+                }
+            }
+            catch
+            {
+
+            }
+            
+           
             context.Courses.Remove(D_tin);
-            context.Attendances.Remove(D_tin2);
 
             context.SaveChanges();
             //var courses = from tt in context.Courses select tt;
             return RedirectToAction("Mine");
         }
 
+        public ActionResult LectureIamGoing()
+        {
+            ApplicationUser currentUser =
+            System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>()
+            .FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            BigSchoolContext context = new BigSchoolContext();
+            //danh sách giảng viên được theo dõi bởi người dùng (đăng nhập) hiện tại
+            var listFollwee = context.Followings.Where(p => p.FollowerId ==
+
+            currentUser.Id).ToList();
+
+            //danh sách các khóa học mà người dùng đã đăng ký
+            var listAttendances = context.Attendances.Where(p => p.Attendee ==
+
+            currentUser.Id).ToList();
+
+            var courses = new List<Course>();
+            foreach (var course in listAttendances)
+
+            {
+                foreach (var item in listFollwee)
+                {
+                    if (item.FolloweeId == course.Course.lecturerId)
+                    {
+                        Course objCourse = course.Course;
+                        objCourse.LectureName =
+                        System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>()
+                        .FindById(objCourse.lecturerId).Name;
+                        courses.Add(objCourse);
+                    }
+                }
+            }
+            return View(courses);
+        }
 
     }
 }
